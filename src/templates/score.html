@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Posture Dashboard</title>
+    <style>
+        body { font-family: Arial; padding: 2rem; background-color: #f4f4f4; }
+        .score { font-size: 2rem; }
+        .good { color: green; }
+        .warn { color: orange; }
+        .bad { color: red; }
+        table { border-collapse: collapse; width: 100%; margin-top: 2rem; }
+        th, td { border: 1px solid #ddd; padding: 0.75rem; text-align: left; }
+        th { background-color: #333; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>🔐 Security Posture Dashboard</h1>
+    <p class="score {{ score_class }}">Score: {{ score }}/100</p>
+
+    <h2>Findings</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Check</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in findings %}
+            <tr>
+                <td>{{ item.check }}</td>
+                <td>
+                    {% if item.status == 'pass' %}
+                        ✅ PASS
+                    {% else %}
+                        ❌ FAIL
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

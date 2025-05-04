@@ -1,0 +1,18 @@
+{
+  "firewall_enabled": true,
+  "remote_desktop_enabled": true,
+  "open_ports": [22, 3389, 8080],
+  "password_policy": {
+    "minimum_length": 8,
+    "complexity_enabled": false,
+    "lockout_threshold": 5
+  },
+  "antivirus_installed": true,
+  "disk_encryption_enabled": false,
+  "admin_accounts": [
+    {"username": "admin", "mfa_enabled": false},
+    {"username": "sec_admin", "mfa_enabled": true}
+  ],
+  "os_version": "Windows 10",
+  "patching_status": "outdated"
+}
