@@ -1,30 +1,106 @@
-# security-posture-ai-framework
-AI-powered framework to assess, score, and auto-remediate security postures based on CIS Benchmarks and NIST standards.
+# 🔐 Security Posture AI Framework
 
-# Security Posture AI Framework
+A lightweight, modular Python + Flask dashboard that analyzes and visualizes your system or cloud security posture based on a real-time or simulated configuration file.
 
-## 🚀 Project Overview
-This project offers a lightweight, AI-enhanced framework to automatically evaluate the security posture of an environment based on industry standards like CIS Benchmarks and NIST Cybersecurity Framework.
-
-The tool assigns a 0–100 security score, identifies misconfigurations, and proposes or automates remediation steps. A simple web dashboard displays results dynamically.
-
-## 📊 Key Features
-- Security configuration analysis
-- Automated posture scoring
-- Misconfiguration detection
-- Suggested remediations
-- Web dashboard display
-- (Optional) Auto-remediation commands
-
-## 🛠️ Tech Stack
-- Python
-- Flask (for web app)
-- JSON/YAML (simulated config files)
-- Chart.js (for scoring visualization)
-
-## 📄 License
-This project is licensed under the MIT License.
+> 💡 Ideal for DevSecOps automation, audit reporting, and CI/CD integration.
 
 ---
 
-*Security made smarter with automation and AI.* 🚀
+## 📊 What It Does
+
+- Reads a structured config file (`sample_config.json`)
+- Calculates a **security score** out of 100
+- Identifies risks: firewall, RDP, open ports, MFA, AV, patching, etc.
+- Shows a live **web dashboard** via Flask
+- Displays a **pass/fail checklist** of findings
+
+---
+
+## 🚀 Live Demo (Run Locally)
+
+1. **Install Flask (Windows)**  
+   (Use your exact Python path if needed)
+
+   ```bash
+   python -m pip install flask
+   ```
+
+2. **Run the App**
+
+   ```bash
+   cd src
+   python dashboard.py
+   ```
+
+3. **Visit in your browser:**  
+   [http://127.0.0.1:5000](http://127.0.0.1:5000)
+
+---
+
+## 📁 Folder Structure
+
+```
+security-posture-ai-framework/
+├── demo/
+│   └── sample_config.json      ← simulated config input
+├── src/
+│   ├── main.py                 ← analyzer + scoring logic
+│   ├── dashboard.py            ← Flask web app
+│   └── templates/
+│       └── score.html          ← dashboard UI (Jinja2)
+```
+
+---
+
+## 🔄 Planned Enhancements
+
+- Auto-generate config from real Windows/Linux/cloud systems
+- Export reports (PDF, CSV, JSON)
+- REST API for CI/CD integration
+- Charts and interactive UI (Chart.js, Bootstrap)
+
+---
+
+## 📦 Example Config (`sample_config.json`)
+
+```json
+{
+  "firewall_enabled": true,
+  "remote_desktop_enabled": true,
+  "open_ports": [22, 80, 3389],
+  "password_policy": {
+    "complexity_enabled": false,
+    "minimum_length": 8
+  },
+  "antivirus_installed": true,
+  "disk_encryption_enabled": false,
+  "admin_accounts": [
+    { "username": "admin", "mfa_enabled": false }
+  ],
+  "patching_status": "outdated"
+}
+```
+
+---
+
+## 💼 Real-World Use Cases
+
+- ✅ Internal security audits
+- ✅ DevSecOps pipeline gate
+- ✅ SIEM data visualizer
+- ✅ Security hardening checklist
+- ✅ Proof-of-concept for job interviews
+
+---
+
+## 🙌 Author
+
+**Ricnoel**  
+GitHub: [github.com/Ricnoel](https://github.com/Ricnoel)
+
+---
+
+## 📜 License
+
+MIT License — free to use and modify
+
